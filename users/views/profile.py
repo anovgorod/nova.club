@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import redirect, get_object_or_404, render
 
-from auth.helpers import auth_required
+from authn.helpers import auth_required
 from badges.models import UserBadge
 from comments.models import Comment
 from common.pagination import paginate
@@ -16,6 +16,7 @@ from users.models.expertise import UserExpertise
 from users.models.friends import Friend
 from users.models.mute import Muted
 from tags.models import Tag, UserTag
+from users.models.notes import UserNote
 from users.models.user import User
 from users.utils import calculate_similarity
 
@@ -64,6 +65,11 @@ def profile(request, user_slug):
         .order_by("-published_at")
     friend = Friend.objects.filter(user_from=request.me, user_to=user).first()
     muted = Muted.objects.filter(user_from=request.me, user_to=user).first()
+    note = UserNote.objects.filter(user_from=request.me, user_to=user).first()
+
+    moderator_notes = []
+    if request.me.is_moderator:
+        moderator_notes = UserNote.objects.filter(user_to=user).exclude(user_from=request.me).all()
 
     return render(request, "users/profile.html", {
         "user": user,
@@ -82,6 +88,8 @@ def profile(request, user_slug):
         "similarity": similarity,
         "friend": friend,
         "muted": muted,
+        "note": note,
+        "moderator_notes": moderator_notes,
     })
 
 

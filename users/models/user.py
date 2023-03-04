@@ -115,6 +115,9 @@ class User(models.Model, ModelDiffMixin):
     class Meta:
         db_table = "users"
 
+    def __str__(self):
+        return f"User: {self.slug}"
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_slug(User, self.full_name, separator="")

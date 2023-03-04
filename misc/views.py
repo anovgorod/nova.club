@@ -8,9 +8,10 @@ from django.shortcuts import render, redirect
 from django.views.decorators.http import require_GET
 from icalendar import Calendar, Event
 
-from auth.helpers import auth_required
+from authn.helpers import auth_required
 from badges.models import UserBadge
 from landing.models import GodSettings
+from misc.models import NetworkGroup
 from users.models.achievements import Achievement
 from users.models.user import User
 
@@ -60,9 +61,9 @@ def stats(request):
 
 @auth_required
 def network(request):
-    secret_page_html = GodSettings.objects.first().network_page
+    network_groups = NetworkGroup.visible_objects()
     return render(request, "pages/network.html", {
-        "page_html": secret_page_html,
+        "network": network_groups,
     })
 
 

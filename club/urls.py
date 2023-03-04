@@ -1,13 +1,14 @@
 from django.conf import settings
+from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include, re_path
 from django.views.generic import RedirectView
 
-from auth.helpers import auth_switch
-from auth.views.auth import login, logout, debug_dev_login, debug_random_login, debug_login, join
-from auth.views.email import email_login, email_login_code
-from auth.views.external import external_login
-from auth.views.patreon import patreon_login, patreon_oauth_callback
+from authn.helpers import auth_switch
+from authn.views.auth import login, logout, debug_dev_login, debug_random_login, debug_login, join
+from authn.views.email import email_login, email_login_code
+from authn.views.external import external_login
+from authn.views.patreon import patreon_login, patreon_oauth_callback
 from badges.views import create_badge_for_post, create_badge_for_comment
 from club import features
 from comments.views import create_comment, edit_comment, delete_comment, show_comment, upvote_comment, \
@@ -27,7 +28,7 @@ from posts.api import md_show_post, api_show_post
 from posts.models.post import Post
 from posts.rss import NewPostsRss
 from posts.sitemaps import sitemaps
-from posts.views.admin import admin_post, announce_post, curate_post
+from posts.views.admin_actions import admin_post, announce_post, curate_post
 from posts.views.api import toggle_post_bookmark
 from posts.views.feed import feed
 from posts.views.posts import show_post, edit_post, upvote_post, retract_post_vote, compose, compose_type, \
@@ -39,12 +40,13 @@ from users.views.delete_account import request_delete_account, confirm_delete_ac
 from users.views.friends import toggle_friend, friends
 from users.views.messages import on_review, rejected, banned
 from users.views.muted import toggle_mute, muted
+from users.views.notes import edit_note
 from users.views.profile import profile, toggle_tag, add_expertise, delete_expertise, profile_comments, profile_posts, \
     profile_badges
 from users.views.settings import profile_settings, edit_profile, edit_account, edit_notifications, edit_payments, \
     edit_bot, edit_data, request_data
 from users.views.intro import intro
-from users.views.admin import admin_profile
+from users.views.admin_actions import admin_profile
 from users.views.people import people
 from search.api import api_search_users, api_search_tags
 
@@ -91,6 +93,8 @@ urlpatterns = [
     path("user/<slug:user_slug>/friends/", friends, name="friends"),
     path("user/<slug:user_slug>/mute/", toggle_mute, name="toggle_mute"),
     path("user/<slug:user_slug>/muted/", muted, name="muted"),
+    path("user/<slug:user_slug>/note/", edit_note, name="edit_note"),
+
     path("user/<slug:user_slug>/edit/", profile_settings, name="profile_settings"),
     path("user/<slug:user_slug>/edit/profile/", edit_profile, name="edit_profile"),
     path("user/<slug:user_slug>/edit/account/", edit_account, name="edit_account"),
@@ -100,8 +104,6 @@ urlpatterns = [
     path("user/<slug:user_slug>/edit/data/", edit_data, name="edit_data"),
     path("user/<slug:user_slug>/edit/data/request/", request_data, name="request_user_data"),
     path("user/<slug:user_slug>/admin/", admin_profile, name="admin_profile"),
-    path("user/<slug:user_slug>/delete/", request_delete_account, name="request_delete_account"),
-    path("user/<slug:user_slug>/delete/confirm/", confirm_delete_account, name="confirm_delete_account"),
 
     path("intro/", intro, name="intro"),
     path("people/", people, name="people"),
@@ -114,6 +116,8 @@ urlpatterns = [
     path("profile/on_review/", on_review, name="on_review"),
     path("profile/rejected/", rejected, name="rejected"),
     path("profile/banned/", banned, name="banned"),
+    path("profile/delete/", request_delete_account, name="request_delete_account"),
+    path("profile/delete/confirm/", confirm_delete_account, name="confirm_delete_account"),
 
     path("create/", compose, name="compose"),
     path("create/<slug:post_type>/", compose_type, name="compose_type"),
@@ -168,6 +172,7 @@ urlpatterns = [
 
     # admin features
     path("godmode/", godmode_settings, name="godmode_settings"),
+    path("godmode/admin/", admin.site.urls),
     path("godmode/network/", godmode_network_settings, name="godmode_network_settings"),
     path("godmode/digest/", godmode_digest_settings, name="godmode_digest_settings"),
     path("godmode/invite/", godmode_invite, name="godmode_invite"),

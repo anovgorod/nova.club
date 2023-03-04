@@ -21,11 +21,16 @@ INTERNAL_IPS = ["127.0.0.1"]
 ADMINS = []
 
 INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "django.contrib.sitemaps",
     "club",
-    "auth.apps.AuthConfig",
+    "authn.apps.AuthnConfig",
     "bookmarks.apps.BookmarksConfig",
     "comments.apps.CommentsConfig",
     "landing.apps.LandingConfig",
@@ -45,6 +50,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "club.middleware.me",
     "club.middleware.ExceptionMiddleware",
@@ -64,10 +73,12 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
+                "django.contrib.messages.context_processors.messages",
+                "django.contrib.auth.context_processors.auth",
                 "club.context_processors.settings_processor",
                 "club.context_processors.data_processor",
                 "club.context_processors.features_processor",
-                "auth.context_processors.users.me",
+                "authn.context_processors.users.me",
                 "posts.context_processors.topics.topics",
             ]
         },
@@ -285,6 +296,7 @@ CLEARED_POST_TEXT = "```\n" \
 MODERATOR_USERNAME = "moderator"
 DELETED_USERNAME = "deleted"
 
+VALUES_GUIDE_URL = "https://vas3k.club/post/values/"
 POSTING_GUIDE_URL = "https://vas3k.club/post/10447/"
 CHATS_GUIDE_URL = "https://vas3k.club/post/9542/"
 PEOPLE_GUIDE_URL = "https://vas3k.club/post/2584/"

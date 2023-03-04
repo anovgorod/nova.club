@@ -6,7 +6,7 @@ from django.core.cache import cache
 from django.db.models import Count
 from django.shortcuts import render
 
-from auth.helpers import auth_required
+from authn.helpers import auth_required
 from common.models import group_by, top
 from common.pagination import paginate
 from tags.models import Tag
@@ -21,7 +21,12 @@ def people(request):
 
     query = request.GET.get("query")
     if query:
-        users = users.filter(index__index=SearchQuery(query, config="russian"))
+        users = users.filter(
+            index__index=(
+                SearchQuery(query, config="simple", search_type="websearch") |
+                SearchQuery(query, config="russian", search_type="websearch")
+            )
+        )
 
     tags = request.GET.getlist("tags")
     if tags:
