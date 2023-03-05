@@ -9,7 +9,7 @@ services:
       - PYTHONUNBUFFERED=1
       - DEBUG=false
       - APP_HOST=http://nova-capital-club.ru/
-      - MEDIA_UPLOAD_URL=https://i.nova.club/upload/
+      - MEDIA_UPLOAD_URL
       - POSTGRES_DB=vas3k_club
       - POSTGRES_USER=vas3k
       - POSTGRES_PASSWORD=vas3k
