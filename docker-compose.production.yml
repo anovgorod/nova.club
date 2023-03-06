@@ -8,7 +8,7 @@ services:
       - MODE=production
       - PYTHONUNBUFFERED=1
       - DEBUG
-      - APP_HOST=http://nova-capital-club.ru/
+      - APP_HOST=https://nova-capital-club.ru
       - MEDIA_UPLOAD_URL
       - POSTGRES_DB=vas3k_club
       - POSTGRES_USER=vas3k
