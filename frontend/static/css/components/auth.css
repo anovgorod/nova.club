@@ -38,9 +38,21 @@
         margin: 0 auto;
     }
 
-        .join-email input {
-            width: 300px;
-        }
+    .join-email input {
+        width: 300px;
+    }
+
+    .join-telegram {
+        display: block;
+        font-size: 120%;
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .join-telegram input {
+        width: 300px;
+    }
 
     .join-consent {
         font-size: 110%;

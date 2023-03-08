@@ -5,10 +5,12 @@ from django.conf import settings
 from django.core.cache import cache
 from django.http import HttpResponseNotAllowed
 from django.shortcuts import redirect, render, get_object_or_404
+from django_q.tasks import async_task
 
 from authn.helpers import auth_required, set_session_cookie
 from authn.models import Session
 from club.exceptions import AccessDenied
+from notifications.telegram.users import notify_new_request_to_join
 from posts.models.post import Post
 from users.models.user import User
 from utils.strings import random_string
@@ -18,7 +20,12 @@ def join(request):
     if request.me:
         return redirect("profile", request.me.slug)
 
-    return render(request, "auth/join.html")
+    if request.GET.get("product_code"):
+        async_task(notify_new_request_to_join, request.GET)
+
+    return render(request, "auth/join.html", {
+        "product": request.GET.get("product_code"),
+    })
 
 
 def login(request):
