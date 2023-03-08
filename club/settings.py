@@ -296,11 +296,11 @@ CLEARED_POST_TEXT = "```\n" \
 MODERATOR_USERNAME = "moderator"
 DELETED_USERNAME = "deleted"
 
-VALUES_GUIDE_URL = "https://vas3k.club/post/values/"
-POSTING_GUIDE_URL = "https://vas3k.club/post/10447/"
-CHATS_GUIDE_URL = "https://vas3k.club/post/9542/"
-PEOPLE_GUIDE_URL = "https://vas3k.club/post/2584/"
-PARLIAMENT_GUIDE_URL = "https://vas3k.club/post/12870/"
+VALUES_GUIDE_URL = "https://nova-capital-club.ru/post/5/"
+POSTING_GUIDE_URL = "https://nova-capital-club.ru/post/6/"
+CHATS_GUIDE_URL = "https://nova-capital-club.ru/post/7/"
+PEOPLE_GUIDE_URL = "https://nova-capital-club.ru/post/8/"
+PARLIAMENT_GUIDE_URL = "https://nova-capital-club.ru/post/9/"
 
 WEBPACK_LOADER = {
     "DEFAULT": {
