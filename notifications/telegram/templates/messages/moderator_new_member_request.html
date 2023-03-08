@@ -1,0 +1,8 @@
+{% load posts %}👮‍♂️ <b>Новый запрос на вступление в клуб:</b>
+
+<b>Product:</b> <pre>{{ data.product_code }}</pre>
+{% if data.is_recurrent %}
+<b>Рекурентно:</b> <pre>{{ data.recurrent_interval }}</pre>
+{% endif %}
+<b>Почта:</b> <pre>{{ data.email }}</pre>
+<b>Telegram:</b> <pre>{{ data.telegram }}</pre>

@@ -8,6 +8,13 @@ from bot.handlers.common import UserRejectReason
 from users.models.user import User
 
 
+def notify_new_request_to_join(data):
+    send_telegram_message(
+        chat=ADMIN_CHAT,
+        text=render_html_message("moderator_new_member_request.html", data=data),
+    )
+
+
 def notify_profile_needs_review(user, intro):
     admin_profile_url = settings.APP_HOST + reverse("admin_profile", kwargs={"user_slug": user.slug})
 
