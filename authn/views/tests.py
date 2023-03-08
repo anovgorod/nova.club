@@ -1,6 +1,7 @@
+import unittest
+import uuid
 from datetime import datetime, timedelta
 from urllib.parse import urljoin
-import uuid
 
 import django
 from django.test import TestCase
@@ -17,6 +18,7 @@ django.setup()  # todo: how to run tests from PyCharm without this workaround?
 from authn.models import Code, Apps
 from authn.providers.common import Membership, Platform
 from authn.exceptions import PatreonException
+from club import features
 from debug.helpers import HelperClient, JWT_STUB_VALUES
 from users.models.user import User
 
@@ -344,6 +346,7 @@ class ViewExternalLoginTests(TestCase):
 
 
 class ViewPatreonLoginTests(TestCase):
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_positive(self):
         with self.settings(PATREON_CLIENT_ID="x-client_id",
                            PATREON_REDIRECT_URL="http://x-redirect_url.com",
@@ -391,6 +394,7 @@ class ViewPatreonOauthCallbackTests(TestCase):
             currently_entitled_amount_cents=0
         )
 
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_patreon_new_member_error(self, mocked_patreon):
         # given
         mocked_patreon.fetch_auth_data.return_value = self.stub_patreon_response_oauth_token
@@ -409,6 +413,7 @@ class ViewPatreonOauthCallbackTests(TestCase):
         created_user: User = User.objects.filter(email=membership.email).first()
         self.assertIsNone(created_user)
 
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_successful_login_existed_member(self, mocked_patreon):
         # given
         mocked_patreon.fetch_auth_data.return_value = self.stub_patreon_response_oauth_token
@@ -434,6 +439,7 @@ class ViewPatreonOauthCallbackTests(TestCase):
         self.assertEqual(created_user.membership_platform_data, {'access_token': 'xxx-access-token',
                                                                  'refresh_token': 'xxx-refresh-token'})
 
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_patreon_exception(self, mocked_patreon):
         # given
         mocked_patreon.fetch_auth_data.side_effect = PatreonException("custom_test_exception")
@@ -445,6 +451,7 @@ class ViewPatreonOauthCallbackTests(TestCase):
         self.assertContains(response=response, text="Не получилось загрузить ваш профиль с серверов патреона",
                             status_code=504)
 
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_patreon_not_membership(self, mocked_patreon):
         # given
         mocked_patreon.fetch_auth_data.return_value = self.stub_patreon_response_oauth_token
@@ -457,6 +464,7 @@ class ViewPatreonOauthCallbackTests(TestCase):
         # then
         self.assertContains(response=response, text="Надо быть патроном, чтобы состоять в Клубе", status_code=402)
 
+    @unittest.skipIf(not features.PATREON_AUTH_ENABLED, reason="Patreon auth was disabled")
     def test_param_code_absent(self, mocked_patreon=None):
         response = self.client.get(reverse('patreon_oauth_callback'), data={})
         self.assertContains(response=response, text="Что-то сломалось между нами и патреоном", status_code=500)
