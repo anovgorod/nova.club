@@ -1,7 +1,7 @@
 <div align="center">
   <br>
   <img src="frontend/static/images/logo/logo-256.png" alt="">
-  <h1>vas3k.club</h1>
+  <h1>NOVA Capital club</h1>
 </div>
 
 Welcome to the [vas3k.club](https://vas3k.club) codebase. We're building our own little IT-lifestyle community. We've opensourced the code so that every member could contribute or implement a feature that they want.
