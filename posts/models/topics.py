@@ -9,8 +9,8 @@ class Topic(models.Model):
     name = models.CharField(max_length=64, null=False)
     icon = models.URLField(null=True)
     description = models.TextField(null=True)
-    color = models.CharField(max_length=16, null=False)
-    style = models.CharField(max_length=256, default="", null=True)
+    color = models.CharField(max_length=16, blank=True, null=False)
+    style = models.CharField(max_length=256, blank=True, default="", null=True)
 
     chat_name = models.CharField(max_length=128, null=True)
     chat_url = models.URLField(null=True)
