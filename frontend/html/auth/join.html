@@ -15,6 +15,11 @@
             Если вам не подходят наши <a href="{% url "docs" "about" %}" target="_blank">правила</a>, вы боитесь деанона или пришли «просто почитать посты» рекомендуем сэкономить нам всем время и пойти на <a href="https://ok.ru/" rel="nofollow">Одноклассники</a>, там как-то с этим попроще.
         </div>
 
+         <div class="block pay-warning" style="margin-top: 100px;">
+            ⚠️ По статистике <strong>3 месяца</strong> - это оптимальный срок, чтобы понять, привыкнуть и научаться пользоваться клубом.
+            Для чего в принципе нужен клуб мы разбирали<strong><a href="{% url "docs" "about" %}">в нашем гайде</a></strong>.
+        </div>
+
         <form action="{% url "join" %}" method="get">
 
         <div class="join-subtitle" id="select_package">Пакет брать будем?</div>
@@ -41,10 +46,10 @@
 
         </form>
 
-        <div class="block pay-warning" style="margin-top: 100px;">
-            ⚠️ Платежи из <strong>России и некоторых банков Беларуси</strong> больше не проходят из-за санкций.
-            Альтернативные опции оплаты ищите <strong><a href="{% url "docs" "blocked_dolor" %}">в нашем гайде</a></strong>.
-        </div>
+<!--        <div class="block pay-warning" style="margin-top: 100px;">-->
+<!--            ⚠️ Платежи из <strong>России и некоторых банков Беларуси</strong> больше не проходят из-за санкций.-->
+<!--            Альтернативные опции оплаты ищите <strong><a href="{% url "docs" "blocked_dolor" %}">в нашем гайде</a></strong>.-->
+<!--        </div>-->
 
         {% endif %}
     </div>
