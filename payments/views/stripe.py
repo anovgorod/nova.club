@@ -14,6 +14,16 @@ from users.models.user import User
 
 log = logging.getLogger()
 
+def join(request):
+    if request.me:
+        return redirect("profile", request.me.slug)
+
+    if request.GET.get("product_code"):
+        async_task(notify_new_request_to_join, request.GET)
+
+    return render(request, "auth/join.html", {
+        "product": request.GET.get("product_code"),
+    })
 
 def done(request):
     payment = Payment.get(reference=request.GET.get("reference"))

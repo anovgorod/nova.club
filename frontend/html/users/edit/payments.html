@@ -46,14 +46,13 @@
         </div>
 
 <!--        <form action="{% url "pay" %}" method="get">-->
+        <form action="{% url "join" %}" method="get">
 
         <div class="block-header" id="select_package">На сколько еще пополняем?</div>
 
         <br>
 
         {% include "payments/blocks/packages.html" %}
-
-        <form action="{% url "join" %}" method="get">
 
         <div class="join-subtitle">Ваши данные</div>
 
@@ -64,7 +63,7 @@
 
         <div class="block join-email">
             <div class="join-email-form">
-                <label>Email 👉&nbsp;&nbsp;<input type="email" name="email" placeholder="your@gmail.com" required></label>
+                <label>Email 👉&nbsp;&nbsp;<input type="email" name="email" placeholder="your@mail.example" required></label>
             </div>
         </div>
 
