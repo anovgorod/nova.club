@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render, get_object_or_404
 
 from authn.helpers import auth_required
 from payments.exceptions import PaymentException
@@ -11,6 +11,7 @@ from payments.models import Payment
 from payments.products import PRODUCTS, find_by_stripe_id, TAX_RATE_VAT
 from payments.service import stripe
 from users.models.user import User
+from notifications.telegram.common import Chat, ADMIN_CHAT, send_telegram_message, render_html_message
 
 log = logging.getLogger()
 
