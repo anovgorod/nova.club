@@ -17,7 +17,7 @@ from notifications.telegram.common import Chat, ADMIN_CHAT, send_telegram_messag
 
 log = logging.getLogger()
 
-def join(request):
+def payments(request):
     if request.me:
         return redirect("profile", request.me.slug)
 
