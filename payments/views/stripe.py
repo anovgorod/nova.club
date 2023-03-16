@@ -5,6 +5,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
 
+from notifications.telegram.users import notify_new_request_to_join
 from authn.helpers import auth_required
 from payments.exceptions import PaymentException
 from payments.models import Payment
