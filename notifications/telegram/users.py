@@ -15,6 +15,18 @@ def notify_new_request_to_join(data):
     )
 
 
+def notify_new_request_to_renew(user, data, email_if_invited=None):
+    send_telegram_message(
+        chat=ADMIN_CHAT,
+        text=render_html_message(
+            "moderator_renew_request.html",
+            user=user,
+            data=data,
+            invited_email=email_if_invited,
+        ),
+    )
+
+
 def notify_profile_needs_review(user, intro):
     admin_profile_url = settings.APP_HOST + reverse("admin_profile", kwargs={"user_slug": user.slug})
 

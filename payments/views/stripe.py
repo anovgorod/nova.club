@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
 
 from django_q.tasks import async_task
-from notifications.telegram.users import notify_new_request_to_join
+from notifications.telegram.users import notify_new_request_to_renew
 from authn.helpers import auth_required
 from payments.exceptions import PaymentException
 from payments.models import Payment
@@ -17,16 +17,6 @@ from notifications.telegram.common import Chat, ADMIN_CHAT, send_telegram_messag
 
 log = logging.getLogger()
 
-def join(request):
-    if request.me:
-        return redirect("profile", request.me.slug)
-
-    if request.GET.get("product_code"):
-        async_task(notify_new_request_to_join, request.GET)
-
-    return render(request, "auth/join.html", {
-        "product": request.GET.get("product_code"),
-    })
 
 def done(request):
     payment = Payment.get(reference=request.GET.get("reference"))
@@ -35,7 +25,14 @@ def done(request):
     })
 
 
+@auth_required
 def pay(request):
+    email = request.GET.get("email")
+    async_task(notify_new_request_to_renew, request.me, request.GET, email)
+    return render(request, "users/edit/payments.html", {
+        "product": request.GET.get("product_code"),
+    })
+
     product_code = request.GET.get("product_code")
     is_invite = request.GET.get("is_invite")
     is_recurrent = request.GET.get("is_recurrent")

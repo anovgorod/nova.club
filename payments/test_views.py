@@ -105,6 +105,7 @@ class TestDoneView(TestCase):
         self.assertContains(response=response, text="Теперь у вас есть аккаунт в Клубе", status_code=200)
 
 
+@skip(reason="Patreon isn't used")
 @patch('payments.views.stripe.stripe')
 class TestPayView(TestCase):
     @classmethod
@@ -203,6 +204,7 @@ class TestPayView(TestCase):
         self.assertContains(response=response, text="Не выбран пакет", status_code=200)
 
 
+@skip(reason="Patreon isn't used")
 class TestStripeWebhookView(TestCase):
 
     def setUp(self):

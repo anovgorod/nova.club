@@ -1,0 +1,7 @@
+{% load posts %}👮‍♂️ <b>Новый запрос на продление членства:</b>
+
+<b>Product:</b> <pre>{{ data.product_code }}</pre>
+{% if data.is_recurrent %}<b>Рекурентно:</b> <pre>{{ data.recurrent_interval }}</pre>{% endif %}
+{% if invited_email %}<b>Почта приглашенного:</b> <pre>{{ invited_email }}</pre>{% else %}<b>Почта:</b> <pre>{{ user.email }}</pre>{% endif %}
+{% if invited_email %}<b>Пригласил:</b> <pre>{{ user.slug }}</pre>{% endif %}
+{% if not invited_email and user.telegram_data and user.telegram_data.username %}<b>Telegram:</b> <pre>{{ user.telegram_data.username }}</pre>{% else %}<b>Telegram:</b> нет данных{% endif %}
