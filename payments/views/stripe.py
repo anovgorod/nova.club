@@ -25,7 +25,6 @@ def done(request):
     })
 
 
-@auth_required
 def pay(request):
     email = request.GET.get("email")
     async_task(notify_new_request_to_renew, request.me, request.GET, email)
