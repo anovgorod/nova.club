@@ -63,7 +63,7 @@
 
                     <div class="people-filters-title hide-on-iphone">
                         <a href="{% url "people" %}">Коммьюнити</a>
-                        &nbsp;<a href="https://vas3k.club/post/2584/"><i class="fas fa-question-circle"></i></a>
+                        &nbsp;<a href="https://nova-capital-club.ru/post/8/"><i class="fas fa-question-circle"></i></a>
                     </div>
 
                     <div class="people-filters-title show-on-iphone">
@@ -117,10 +117,10 @@
                         </div>
                     {% endfor %}
 
-                    <div class="people-filters-tag">
-                        <input type="checkbox" name="filters" value="faang" id="filter_faang" {% if "faang" in people_query.filters %}checked{% endif %} @change="$event.target.form.submit()">
-                        <label for="filter_faang">📱 FAANG</label>
-                    </div>
+<!--                    <div class="people-filters-tag">-->
+<!--                        <input type="checkbox" name="filters" value="faang" id="filter_faang" {% if "faang" in people_query.filters %}checked{% endif %} @change="$event.target.form.submit()">-->
+<!--                        <label for="filter_faang">📱 FAANG</label>-->
+<!--                    </div>-->
 
                     <div class="people-filters-header">Взаимопомощь</div>
                     {% for tag in tag_stat_groups.grow %}
