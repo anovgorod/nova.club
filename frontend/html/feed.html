@@ -23,6 +23,13 @@
 {% endblock %}
 
 {% block feed_content %}
+<div class="block pay-warning">
+            <p>
+                ⚠️ <strong>Клуб работает в тестовом режиме</strong>. Если что-то не работает или не понятно,
+                пиши в телеграмм <a href="https://t.me/anovgorodsev"> anovgorodsev </a>.
+                Если все супер и кайфанул, то можно <strong><a href="{% url "docs" "blocked_dolor" %}">задонатить</a></strong>.
+            </p>
+        </div>
     {% if topic %}
         <div class="feed-topic-header" style="background-color: {{ topic.color }};">
             <span class="topic-icon feed-topic-header-icon"><img src="{{ topic.icon }}" alt="Иконка комнаты {{ topic.name }}" loading="lazy" /></span>
