@@ -44,6 +44,12 @@
 <body>
 
 {% block body %}
+
+
+
+
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     <main class="landing">
         <div class="landing-block landing-block-limited">
             <img src="{% static "images/logo/null.png" %}" alt="">
@@ -252,7 +258,7 @@
 <!--        </div>-->
 
         <div class="landing-block landing-block-limited landing-block-map-title" id="map">
-            <h3 class="feature-title">Недушное коммьюнити</h3>
+            <h3 class="feature-title">Поиск участников под задачи и интересы</h3>
         </div>
 
         <div class="landing-block landing-block-map">
@@ -280,9 +286,9 @@
                 </div>
 
                 <div class="map-counters">
-                    <div class="map-counter">{{ stats.users }} {{ stats.users | rupluralize:"человек,человека,человек" }}</div>
-                    <div class="map-counter">{{ stats.countries }} {{ stats.countries | rupluralize:"страна,страны,стран"  }}</div>
-                    <div class="map-counter">10+ чатов</div>
+                    <div class="map-counter">300+ экспертов*<!-- tut {{ stats.users }} {{ stats.users | rupluralize:"человек,человека,человек" }}--></div>
+                    <div class="map-counter"> 5 стран<!-- tut {{ stats.countries }} {{ stats.countries | rupluralize:"страна,страны,стран"  }}--></div>
+                    <div class="map-counter">250+ мастер-класов</div>
                 </div>
             </div>
         </div>
@@ -350,7 +356,7 @@
 {% block footer %}
     <footer class="footer">
         <div class="footer-left" style="text-align: center; font-size: 100%;">
-            &copy; made by · <a href="https://vas3k.ru" target="_blank">vas3k</a>  ·  <a href="https://anovgorod.su" target="_blank"> anovgorod.su</a>  ·  {% now "Y" %}
+            &copy; made by · <a href="https://nova-capital.company" target="_blank">LLC NOVA CAPITAL</a>   <!-- · tut <a href="https://anovgorod.su" target="_blank"> anovgorod.su</a> --> ·  {% now "Y" %}
             &nbsp;&nbsp;&nbsp;&infin;&nbsp;&nbsp;&nbsp;
             <a href="{% url "docs" "contact" %}">Связаться с нами</a><br><br>
         </div>
