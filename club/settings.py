@@ -175,7 +175,7 @@ EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "NVA.BRANDS <info@nova-brands.ru>")
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "NVA.BRANDS <info@nova-capital-club.ru>")
 
 # App
 
@@ -289,7 +289,7 @@ MIN_DAYS_TO_GIVE_BADGES = 35  # minimum "days" balance to buy and gift any badge
 MAX_MUTE_COUNT = 10  # maximum number of users allowed to mute
 CLEARED_POST_TEXT = "```\n" \
     "😥 Этот пост был удален самим автором и от него остались лишь комментарии участников. " \
-    "Если вы хотите приютить и развить эту тему как новый автор, напишите модераторам Клуба: info@nova-brands.ru" \
+    "Если вы хотите приютить и развить эту тему как новый автор, напишите модераторам Клуба: info@nova-capital-club.ru" \
     "\n```"
 
 
