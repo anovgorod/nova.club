@@ -66,9 +66,6 @@ def people(request):
                 "can_advice", "can_project", "can_teach", "search_idea",
                 "can_idea", "can_invest", "search_mentor", "can_mentor", "can_hobby"
             }],
-            "work": [tag for tag in tag_stat_groups.get(Tag.GROUP_CLUB, []) if tag.code in {
-                "can_refer", "search_employees", "search_job", "search_remote", "search_relocate"
-            }],
             "collectible": [
                 tag for tag in tag_stat_groups.get(Tag.GROUP_COLLECTIBLE, []) if tag.user_count > 1
             ][:20]

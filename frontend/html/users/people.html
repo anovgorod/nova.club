@@ -110,17 +110,12 @@
 
                     <div class="people-filters-header">Профессиональное</div>
 
-                    {% for tag in tag_stat_groups.work %}
+                    {% for tag in tag_stat_groups.profession %}
                         <div class="people-filters-tag">
                             <input type="checkbox" name="tags" value="{{ tag.code }}" id="tag_{{ tag.code }}" {% if tag.code in people_query.tags %}checked{% endif %} @change="$event.target.form.submit()">
                             <label for="tag_{{ tag.code }}">{{ tag.name }}</label>
                         </div>
                     {% endfor %}
-
-<!--                    <div class="people-filters-tag">-->
-<!--                        <input type="checkbox" name="filters" value="faang" id="filter_faang" {% if "faang" in people_query.filters %}checked{% endif %} @change="$event.target.form.submit()">-->
-<!--                        <label for="filter_faang">📱 FAANG</label>-->
-<!--                    </div>-->
 
                     <div class="people-filters-header">Взаимопомощь</div>
                     {% for tag in tag_stat_groups.grow %}

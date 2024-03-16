@@ -13,10 +13,12 @@ class Tag(models.Model):
     GROUP_CLUB = "club"
     GROUP_COLLECTIBLE = "collectible"
     GROUP_OTHER = "other"
+    GROUP_PROFESSION = "profession"
     GROUPS = [
         (GROUP_PERSONAL, "Я"),
         (GROUP_TECH, "Технологии"),
         (GROUP_CLUB, "Для других членов Клуба я..."),
+        (GROUP_PROFESSION, "Профессия"),
         (GROUP_HOBBIES, "Хобби"),
         (GROUP_COLLECTIBLE, "Коллекционные теги"),
         (GROUP_OTHER, "Другие"),
