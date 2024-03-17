@@ -175,11 +175,11 @@ EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "NVA.BRANDS <info@nova-capital-club.ru>")
+DEFAULT_FROM_EMAIL = "NVA.BRANDS <club.nova@yandex.ru>"
 
 # App
 
-APP_HOST = os.environ.get("APP_HOST") or "http://127.0.0.1:8000"
+APP_HOST = os.environ.get("APP_HOST", "http://127.0.0.1:8000")
 APP_NAME = "NOVA Capital Club"
 APP_DESCRIPTION = "Всё интересное происходит за закрытыми дверями"
 LAUNCH_DATE = datetime(2023, 3, 5)
