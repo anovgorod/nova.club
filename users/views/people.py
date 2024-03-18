@@ -12,7 +12,7 @@ from common.pagination import paginate
 from tags.models import Tag
 from users.models.user import User
 
-TAGS_CACHE_TIMEOUT_SECONDS = 24 * 60 * 60  # 24 hours
+TAGS_CACHE_TIMEOUT_SECONDS = 1 * 60 * 60  # 1 hour
 
 
 @auth_required
