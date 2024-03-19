@@ -7,7 +7,7 @@ LABELS = {
         "notify": False
     },
     "ama": {
-        "title": "АМА",
+        "title": "Эфиры",
         "description": "Ask Me Anything",
         "emoji": "✋️",
         "color": "#1c4e30",
