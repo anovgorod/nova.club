@@ -44,7 +44,7 @@ def private_message(update: Update, context: CallbackContext) -> None:
     if str(update.effective_user.id) not in set(club_users):
         update.effective_chat.send_message(
             "Привет! Мы пока не знакомы. Привяжи меня к аккаунту командой /auth с "
-            "<a href=\"https://nova-brands.ru/user/me/edit/bot/\">кодом из профиля</a> через пробел",
+            "<a href=\"https://brnds.space/user/me/edit/bot/\">кодом из профиля</a> через пробел",
             parse_mode=ParseMode.HTML
         )
     else:

@@ -71,8 +71,8 @@ def network(request):
 def robots(request):
     lines = [
         "User-agent: *",
-        "Sitemap: https://nova-brands.ru/sitemap.xml",
-        "Host: https://nova-brands.ru",
+        "Sitemap: https://brnds.space/sitemap.xml",
+        "Host: https://brnds.space",
         "Disallow: /intro/",
         "Disallow: /user/",
         "Disallow: /people/",

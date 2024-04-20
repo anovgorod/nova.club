@@ -245,10 +245,10 @@ VIDEO_EXTENSIONS = {"mp4", "mov", "webm"}
 IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "gif"}
 
 OG_IMAGE_GENERATOR_URL = "https://og.vas3k.club/preview"
-OG_IMAGE_DEFAULT = "https://p.nova-brands.ru/76725431c9dab8d49c9fcccd520fef34c3afeb1d9b57e17251d07e96b21b827e.png"
-OG_MACHINE_AUTHOR_LOGO = "https://p.nova-brands.ru/efa8326a8baa1a1cae771b0b07fa9b22f32e583b964c5d9dacad344890c3daf4.png"
+OG_IMAGE_DEFAULT = "https://p.nova-capital-club.ru/76725431c9dab8d49c9fcccd520fef34c3afeb1d9b57e17251d07e96b21b827e.png"
+OG_MACHINE_AUTHOR_LOGO = "https://p.nova-capital-club.ru/efa8326a8baa1a1cae771b0b07fa9b22f32e583b964c5d9dacad344890c3daf4.png"
 OG_IMAGE_GENERATOR_DEFAULTS = {
-    "logo": "https://p.nova-brands.ru/0bbc64be66db8c90e01baf511c65b094d9f39f2cd83c28b019ce24f9bc5eb66c.png",
+    "logo": "https://p.nova-capital-club.ru/0bbc64be66db8c90e01baf511c65b094d9f39f2cd83c28b019ce24f9bc5eb66c.png",
     "op": 0.6,
     "bg": "#FFFFFF",
 }
@@ -296,11 +296,11 @@ CLEARED_POST_TEXT = "```\n" \
 MODERATOR_USERNAME = "moderator"
 DELETED_USERNAME = "deleted"
 
-VALUES_GUIDE_URL = "https://nova-brands.ru/post/5/"
-POSTING_GUIDE_URL = "https://nova-brands.ru/post/6/"
-CHATS_GUIDE_URL = "https://nova-brands.ru/post/7/"
-PEOPLE_GUIDE_URL = "https://nova-brands.ru/post/8/"
-PARLIAMENT_GUIDE_URL = "https://nova-brands.ru/post/9/"
+VALUES_GUIDE_URL = "https://brnds.space/post/5/"
+POSTING_GUIDE_URL = "https://brnds.space/post/6/"
+CHATS_GUIDE_URL = "https://brnds.space/post/7/"
+PEOPLE_GUIDE_URL = "https://brnds.space/post/8/"
+PARLIAMENT_GUIDE_URL = "https://brnds.space/post/9/"
 
 WEBPACK_LOADER = {
     "DEFAULT": {
