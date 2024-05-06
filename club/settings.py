@@ -180,8 +180,8 @@ DEFAULT_FROM_EMAIL = "BRNDS <club.nova@yandex.ru>"
 # App
 
 APP_HOST = os.environ.get("APP_HOST", "http://127.0.0.1:8000")
-APP_NAME = "NOVA Capital Club"
-APP_DESCRIPTION = "Всё интересное происходит за закрытыми дверями"
+APP_NAME = "BRNDS"
+APP_DESCRIPTION = "Прокачай свой личный бренд в отличной компании"
 LAUNCH_DATE = datetime(2023, 3, 5)
 
 AUTH_CODE_LENGTH = 6
