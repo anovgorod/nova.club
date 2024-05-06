@@ -245,10 +245,10 @@ VIDEO_EXTENSIONS = {"mp4", "mov", "webm"}
 IMAGE_EXTENSIONS = {"jpg", "jpeg", "png", "gif"}
 
 OG_IMAGE_GENERATOR_URL = "https://og.vas3k.club/preview"
-OG_IMAGE_DEFAULT = "https://p.nova-capital-club.ru/76725431c9dab8d49c9fcccd520fef34c3afeb1d9b57e17251d07e96b21b827e.png"
+OG_IMAGE_DEFAULT = "https://p.nova-capital-club.ru/63a66b8ebad34656500251ef1b68f430e385fdb06707130557d7bf0bade0d38d.png"
 OG_MACHINE_AUTHOR_LOGO = "https://p.nova-capital-club.ru/efa8326a8baa1a1cae771b0b07fa9b22f32e583b964c5d9dacad344890c3daf4.png"
 OG_IMAGE_GENERATOR_DEFAULTS = {
-    "logo": "https://p.nova-capital-club.ru/0bbc64be66db8c90e01baf511c65b094d9f39f2cd83c28b019ce24f9bc5eb66c.png",
+    "logo": "https://p.nova-capital-club.ru/de82852e64655999ff1ae22d63626b14496420400ebba06e27e369bfed8d1007.png",
     "op": 0.6,
     "bg": "#FFFFFF",
 }
