@@ -69,7 +69,7 @@ def create_badge_for_comment(request, comment_id):
     if comment.author.deleted_at:
         raise BadRequest(
             title="😵 Пользователь удалился",
-            message="Нельзя выдавать награды удалённым юзерам"
+            message="Нельзя выдавать награды удалённым резидентам"
         )
     if comment.author == request.me:
         raise BadRequest(

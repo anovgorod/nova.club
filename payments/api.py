@@ -17,7 +17,7 @@ def api_gift_days(request, days, user_slug):
     to_user = get_object_or_404(User, slug=user_slug)
 
     if not from_user.is_bank:
-        raise ApiAccessDenied(message="Только юзеры с ролью 'bank' могут переводить дни")
+        raise ApiAccessDenied(message="Только резиденты с ролью 'bank' могут переводить дни")
 
     gift_membership_days(
         days=days,

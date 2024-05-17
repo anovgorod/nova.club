@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Админка юзера — {{ block.super }}
+    Админка пользователя — {{ block.super }}
 {% endblock %}
 
 {% block content %}
@@ -222,7 +222,7 @@
         </div>
 
         {% if me.is_god %}
-            <div class="profile-header">Удалить аккаунт юзера</div>
+            <div class="profile-header">Удалить аккаунт пользователя</div>
             <div class="block">
                 <form action="." method="post" enctype="multipart/form-data">
                     {% csrf_token %}
@@ -232,7 +232,7 @@
                         {{ form.delete_account }}
                         {% if form.delete_account.errors %}<span class="form-row-errors">{{ form.delete_account.errors }}</span>{% endif %}
                     </div>
-                    <button type="submit" class="button" onclick="return confirm('Точно удаляем юзера?')">Я УВЕРЕН</button>
+                    <button type="submit" class="button" onclick="return confirm('Точно удаляем пользователя?')">Я УВЕРЕН</button>
                 </form>
             </div>
         {% endif %}

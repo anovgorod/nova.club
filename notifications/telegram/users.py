@@ -53,7 +53,7 @@ def notify_profile_needs_review(user, intro):
                 telegram.InlineKeyboardButton("❌️ Агрессия", callback_data=f"reject_user_aggression:{user.id}"),
             ],
             [
-                telegram.InlineKeyboardButton("✏️ Написать юзеру", url=admin_profile_url),
+                telegram.InlineKeyboardButton("✏️ Написать резиденту", url=admin_profile_url),
             ]
         ])
     )
@@ -96,14 +96,14 @@ def notify_user_ping(user, message):
 def notify_admin_user_ping(user, message):
     send_telegram_message(
         chat=ADMIN_CHAT,
-        text=f"🛎 <b>Юзера {user.slug} пинганули:</b> {message}"
+        text=f"🛎 <b>Резидента {user.slug} пинганули:</b> {message}"
     )
 
 
 def notify_admin_user_unmoderate(user):
     send_telegram_message(
         chat=ADMIN_CHAT,
-        text=f"💣 <b>Юзера {user.slug} размодерировали</b>"
+        text=f"💣 <b>Резидента {user.slug} размодерировали</b>"
     )
 
 
@@ -119,7 +119,7 @@ def notify_admin_user_on_ban(user, days, reason):
     banned_user_profile_url = settings.APP_HOST + reverse("profile", kwargs={"user_slug": user.slug})
     send_telegram_message(
         chat=ADMIN_CHAT,
-        text=f"⛔️ <b>Юзер <a href=\"{banned_user_profile_url}\">{user.full_name}</a> "
+        text=f"⛔️ <b>Резидент <a href=\"{banned_user_profile_url}\">{user.full_name}</a> "
              f"({user.slug}) забанен на {days} дней</b>"
              f"\n\nПричина: <i>{reason}</i>"
     )

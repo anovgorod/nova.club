@@ -129,7 +129,7 @@ def do_user_admin_actions(request, user, data):
         # notify admins
         send_telegram_message(
             chat=ADMIN_CHAT,
-            text=f"💀 Юзер был удален админами: {settings.APP_HOST}/user/{user.slug}/",
+            text=f"💀 Резидент был удален админами: {settings.APP_HOST}/user/{user.slug}/",
         )
 
     # Ping
@@ -149,7 +149,7 @@ def do_user_admin_actions(request, user, data):
 
         send_telegram_message(
             chat=ADMIN_CHAT,
-            text=f"🎁 <b>Юзеру {user.slug} добавили {data['add_membership_days']} дней членства</b>",
+            text=f"🎁 <b>Резиденту {user.slug} добавили {data['add_membership_days']} дней членства</b>",
         )
 
     return redirect("profile", user.slug)

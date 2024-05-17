@@ -71,7 +71,7 @@ class PostAdminForm(PostCuratorForm):
     )
 
     transfer_ownership = forms.CharField(
-        label="Передать владение постом другому юзернейму",
+        label="Передать владение постом другому резиденту",
         required=False,
     )
 
