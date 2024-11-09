@@ -1,6 +1,6 @@
 .landing {
     font-size: 140%;
-    line-height: 1.5em;
+    line-height: 1.6em;
 }
 
     .landing-block {
@@ -111,7 +111,7 @@
     top: 45%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    font-size: 40px;
+    font-size: 30px;
     line-height: 1.2em;
 }
 
@@ -342,4 +342,24 @@
     width: 150px;
     height: 150px;
     float: right;
+}
+
+.arrow_example_1 {
+
+width: 15px;
+
+height: 15px;
+
+border-top: 2px solid #000000 !important;
+
+border-right: 2px solid #000000 !important;
+
+margin: 16px 0 0 10px;
+
+transform: rotate(135deg);
+
+display: inline-block;
+
+transition: 1s;
+
 }
