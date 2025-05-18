@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="ru">
 <head>
-    <title>{% block title %} BRNDS {% endblock %}</title>
+    <title>{% block title %} NVA Club {% endblock %}</title>
     {% block fonts %}
         {% include "common/fonts.html" %}
     {% endblock %}
@@ -17,7 +17,7 @@
     </script>
 
     <link rel="alternate" type="application/rss+xml"
-          title="BRNDS Club: Новые посты"
+          title="NVA Club: Новые посты"
           href="{% url "rss" %}{% if me %}?hash={{ me.secret_hash }}{% endif %}" />
 
     {% block og_tags %}
