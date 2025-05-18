@@ -175,13 +175,13 @@ EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "BRNDS <club.nova@yandex.ru>"
+DEFAULT_FROM_EMAIL = "Nova Club <club.nova@yandex.ru>"
 
 # App
 
 APP_HOST = os.environ.get("APP_HOST", "http://127.0.0.1:8000")
-APP_NAME = "BRNDS"
-APP_DESCRIPTION = "Прокачай свой личный бренд в отличной компании"
+APP_NAME = "Nova Club"
+APP_DESCRIPTION = "Живем эту жизнь впервые, предпочитаем делать это в отличной компании"
 LAUNCH_DATE = datetime(2023, 3, 5)
 
 AUTH_CODE_LENGTH = 6
